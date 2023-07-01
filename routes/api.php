@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function() {
     Route::get('saludo', function () {
-        return response()->json([
-            'success' => true,
-            'data' => [
-                'name' =>'Mario',
-                'email' => 'mario@gmail.com',
-                'age' => 25,
-            ]
-        ]);
+        return 'Hola'; 
     });
+
+    Route::apiResource('books', BookController::class);  
 });
